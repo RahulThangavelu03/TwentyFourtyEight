@@ -3,6 +3,7 @@ import { useState ,useEffect,useRef} from 'react';
 
 import { getTileColor,getTextColor } from './Util';
 
+import { CheckStatus } from './Util';
 function App() {
 
 
@@ -127,6 +128,12 @@ function HandleArrowUP(latestGrid){
     if (JSON.stringify(newGrid) !== JSON.stringify(latestGrid)) {
     const gridWithRandom = GenerateRandom(newGrid)
     setGrid(gridWithRandom)
+     const status =  CheckStatus(newGrid)
+    if (status === 'win') {
+      alert('You reached 2048! You win!')
+    } else if (status === 'lose') {
+      alert('No more moves! Game over!')
+    }
   }
  
   
@@ -139,6 +146,12 @@ function HandleArrowDown(latestGrid){
     if (JSON.stringify(newGrid) !== JSON.stringify(latestGrid)) {
     const gridWithRandom = GenerateRandom(newGrid)
     setGrid(gridWithRandom)
+     const status = CheckStatus(newGrid)
+    if (status === 'win') {
+      alert('You reached 2048! You win!')
+    } else if (status === 'lose') {
+      alert('No more moves! Game over!')
+    }
   }
  
  
@@ -150,8 +163,14 @@ function HandleArrowRight(latestGrid){
     const newGrid = latestGrid.map(row => moveRowRight(row))
 
   if (JSON.stringify(newGrid) !== JSON.stringify(latestGrid)) {
-    const gridWithRandom = GenerateRandom(newGrid); 
-    setGrid(gridWithRandom); 
+    const gridWithRandom = GenerateRandom(newGrid)
+    setGrid(gridWithRandom)
+     const status =  CheckStatus(newGrid)
+    if (status === 'win') {
+      alert('You reached 2048! You win!')
+    } else if (status === 'lose') {
+      alert('No more moves! Game over!')
+    }
   }
 
 }
@@ -167,6 +186,13 @@ function HandleArrowLeft(latestGrid) {
   if (JSON.stringify(newGrid) !== JSON.stringify(latestGrid)) {
     const gridWithRandom = GenerateRandom(newGrid); 
     setGrid(gridWithRandom); 
+
+    const status = CheckStatus(newGrid)
+    if (status === 'win') {
+      alert('You reached 2048! You win!')
+    } else if (status === 'lose') {
+      alert('No more moves! Game over!')
+    }
   }
 }
 

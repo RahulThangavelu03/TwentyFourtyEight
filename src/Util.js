@@ -22,3 +22,47 @@
 export function getTextColor(value) {
   return value > 4 ? 'white' : 'black';
 }
+
+
+
+export function CheckStatus(grid){
+
+if(grid.flat().includes(2048))
+
+  {
+
+return "win"
+
+  }
+
+
+if (grid.flat(grid).includes(0))
+{
+
+  return 'continue'
+
+
+}
+
+
+for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
+      if (i < 3 && grid[i][j] === grid[i + 1][j]) 
+        
+        {
+          return 'continue'
+        }
+
+      if (j < 3 && grid[i][j] === grid[i][j + 1]) 
+        
+        {
+        return 'continue'
+        }
+    }
+  }
+
+
+
+return "lose"
+
+}
