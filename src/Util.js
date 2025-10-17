@@ -36,7 +36,7 @@ return "win"
   }
 
 
-if (grid.flat(grid).includes(0))
+if (grid.flat().includes(0))
 {
 
   return 'continue'
